@@ -28,6 +28,38 @@
   <% end %>
   </section>
 
+  <section>
     <h2>Health</h2>
+  </section>
+  <section class="mb-2 border border-amber-700" data-controller="presentation">
+    <button data-action="click->presentation#toggleVisibility">add supply</button>
     <h2>Chore</h2>
+    <%= form_with model: [@pet, Task.new], class: "add-task-form hidden" do |form| %>
+      <div class="border border-orange-700">
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title %>
+      </div>
+      <div class="border border-orange-700">
+        <%= form.label :due_date, style: "display: block" %>
+        <%= form.text_field :due_date %>
+      </div>
+      <div class="border border-orange-700">
+        <%= form.label :complete, style: "display: block" %>
+        <%= form.checkbox :complete %>
+      </div>
+      <div class="border border-orange-700">
+        <%= form.label :recurring, style: "display: block" %>
+        <%= form.checkbox :recurring %>
+      </div>
+      <div class="border border-orange-700">
+        <%= form.label :label, style: "display: block" %>
+        <%= form.text_field :label %>
+      </div>
+      <div class="border border-orange-700">
+        <%= form.label :notes, style: "display: block" %>
+        <%= form.text_area :notes %>
+      </div>
+      <%= form.submit "Submit" %>
+    <% end %>
+  </section>
 </section>
