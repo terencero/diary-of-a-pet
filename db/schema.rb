@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_05_032438) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_11_190714) do
   create_table "pet_profiles", force: :cascade do |t|
     t.string "animal"
     t.string "name"
@@ -31,5 +31,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_05_032438) do
     t.index ["pet_profile_id"], name: "index_supplies_on_pet_profile_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.date "due_date"
+    t.boolean "complete"
+    t.string "notes"
+    t.boolean "recurring"
+    t.string "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "pet_profile_id", null: false
+    t.index ["pet_profile_id"], name: "index_tasks_on_pet_profile_id"
+  end
+
   add_foreign_key "supplies", "pet_profiles"
+  add_foreign_key "tasks", "pet_profiles"
 end

@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   scope() do
     resources :pet_profiles, path: "pet-profiles" do
       resources :supplies, only: [ :create, :show, :edit ]
+      resources :tasks
     end
   end
   resources :supplies, only: [ :index ]
+  resources :tasks
   root "pet_profiles#index"
 end

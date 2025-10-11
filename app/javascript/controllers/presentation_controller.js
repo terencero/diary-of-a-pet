@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = [ "filter", "card" ]
 
   filter() {
-    console.log(`what is this ${this.data.get('filterValue')}`)
     this.element.querySelectorAll('.pet-supply-card').forEach((card) => {
       card.id !== this.filterName && card.classList.add('hidden')
     });
@@ -20,6 +19,7 @@ export default class extends Controller {
   }
 
   clearFilter() {
+    // TODO: not being used rn
     this.card.classList.remove('hidden')
   }
   
