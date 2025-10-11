@@ -1,0 +1,2 @@
+class Food < Supply
+end

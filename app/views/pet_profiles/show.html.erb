@@ -1,0 +1,33 @@
+<section>
+  <h1 class="text-blue-700"><%= @pet.name %>'s Page</h1>
+  <section class="mb-2 border border-amber-700" data-controller="presentation">
+    <button data-action="click->presentation#toggleVisibility">add supply</button>
+    <h2>Supplies</h2>
+    <%= form_with model: [@pet, Supply.new], class: "add-supply-form hidden" do |form| %>
+      <div class="border border-orange-700">
+        <%= form.label :name, style: "display: block" %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="border border-orange-700">
+        <%= form.label :brand, style: "display: block" %>
+        <%= form.text_field :brand %>
+      </div>
+
+      <div class="border border-orange-700">
+        <%= form.label :inventory_count, style: "display: block" %>
+        <%= form.number_field :inventory_count %>
+      </div>
+
+      <div class="border border-orange-700">
+        <%= form.label :type, style: "display: block" %>
+        <%= form.select :type, ['Food', 'Medication'] %>
+      </div>
+
+      <%= form.submit "Submit" %>
+  <% end %>
+  </section>
+
+    <h2>Health</h2>
+    <h2>Chore</h2>
+</section>

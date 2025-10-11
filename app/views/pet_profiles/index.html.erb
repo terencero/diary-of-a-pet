@@ -1,0 +1,18 @@
+<section>
+  <h1 class="bg-sky-50 font-bold text-4xl">Pet Profiles</h1>
+  <section>
+    <h2 class="font-semibold">Your Pet<%= "s" if @pets.length > 1 %></h2>
+    <% @pets.each do |pet| %>
+      <%= link_to pet do %>
+        <div class="mb-1 border">
+          <h1><%= pet.name %></h1>
+          <div>
+            <p><%= pet.animal %></p>
+            <p>birthday: <%= pet.dob %></p>
+            <p>gender: <%= pet.gender %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+</section>
