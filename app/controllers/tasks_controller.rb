@@ -27,7 +27,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.expect(supply: [ :name, :brand, :inventory_count, :type ])
+      params.expect(task: [ :title, :due_date, :complete, :recurring, :label, :notes ])
     end
 
     def pet_profile_path?

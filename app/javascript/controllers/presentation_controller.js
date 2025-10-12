@@ -10,7 +10,7 @@ export default class extends Controller {
   }
 
   toggleVisibility() {
-    const el = this.element.querySelector('.add-supply-form')
+    const el = this.element.querySelector('.add-task-form')
     if (el.classList.contains('hidden')) {
       el.classList.remove('hidden')
     } else {
