@@ -29,6 +29,9 @@ class SuppliesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   private
     def set_pet_profile
       puts "in pet profile path"

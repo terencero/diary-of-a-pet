@@ -1,4 +1,15 @@
 <section>
   <h1 class="font-bold text-4xl">Tasks</h1>
-  
+  <div>
+    <% @tasks.each do |task| %>
+      <p><b>title:</b> <%= task.title %></p>
+      <p><b>label:</b> <%= task.label %></p>
+      <p><b>due_date:</b> <%= task.due_date %></p>
+      <p><b>complete:</b> <%= task.complete %></p>
+      <p><b>notes:</b> <%= task.notes %></p>
+      <%= link_to "Edit", edit_task_path(task) %>
+      <button>Delete</button>
+      <button>Mark Complete</button>
+    <% end %>
+  </div> 
 </section>

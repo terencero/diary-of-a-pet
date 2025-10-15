@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_pet_profile
+  before_action :set_task, only: %i[ edit ]
 
   def index
     @tasks = Task.all
@@ -14,6 +15,9 @@ class TasksController < ApplicationController
         render @pet
       end
     end
+  end
+
+  def edit
   end
 
   private
@@ -34,5 +38,9 @@ class TasksController < ApplicationController
       Rails.logger.info "what is path #{params}"
       Rails.logger.info "checking path #{params.include?(:pet_profile_id)}"
       params.include? :pet_profile_id
+    end
+
+    def set_task
+      @task = Task.find(params[:id])
     end
 end

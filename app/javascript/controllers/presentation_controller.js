@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "filter", "card" ]
+  static targets = [ "filter", "card", "visibility" ]
 
   filter() {
     this.element.querySelectorAll('.pet-supply-card').forEach((card) => {
@@ -10,12 +10,7 @@ export default class extends Controller {
   }
 
   toggleVisibility() {
-    const el = this.element.querySelector('.add-task-form')
-    if (el.classList.contains('hidden')) {
-      el.classList.remove('hidden')
-    } else {
-      el.classList.add('hidden')
-    }
+    this.visibilityTarget.classList.toggle('hidden')
   }
 
   clearFilter() {
