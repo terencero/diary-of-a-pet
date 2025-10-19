@@ -1,7 +1,9 @@
 <section>
   <h1 class="text-blue-700"><%= @pet.name %>'s Page</h1>
-  <section class="mb-2 border border-amber-700" data-controller="presentation">
-    <h2>Supplies</h2>
+  <div class="mb-2 border border-amber-700" data-controller="presentation">
+    <%= link_to pet_profile_supplies_path(@pet) do %>
+      <h2>Supplies</h2>
+    <% end %>
     <button data-action="click->presentation#toggleVisibility">add supply</button>
     <%= form_with model: [@pet, Supply.new], 
       data: { "presentation-target": "visibility" },
@@ -23,19 +25,21 @@
 
       <div class="border border-orange-700">
         <%= form.label :type, style: "display: block" %>
-        <%= form.select :type, ['Food', 'Medication'] %>
+        <%= form.select :type, ['Food', 'Medication', 'Poop Bag', 'Litter', 'other'] %>
       </div>
 
       <%= form.submit "Submit" %>
-  <% end %>
-  </section>
+    <% end %>
+  </div>
 
-  <section>
+  <div>
     <h2>Health</h2>
-  </section>
-  <section class="mb-2 border border-amber-700" data-controller="presentation">
-    <button data-action="click->presentation#toggleVisibility">add chore</button>
-    <h2>Chore</h2>
+  </div>
+  <div class="mb-2 border border-amber-700" data-controller="presentation">
+    <%= link_to pet_profile_tasks_path(@pet) do %>
+      <h2>Tasks</h2>
+    <% end %>
+    <button data-action="click->presentation#toggleVisibility">add task</button>
     <%= form_with model: [@pet, Task.new],
       data: { "presentation-target": "visibility" },
       class: "hidden" do |form| %>
@@ -65,5 +69,5 @@
       </div>
       <%= form.submit "Submit" %>
     <% end %>
-  </section>
+  </div>
 </section>

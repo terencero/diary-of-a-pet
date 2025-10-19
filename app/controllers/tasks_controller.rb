@@ -1,9 +1,29 @@
 class TasksController < ApplicationController
   before_action :set_pet_profile
-  before_action :set_task, only: %i[ edit ]
+  before_action :set_task, only: %i[ edit update destroy ]
 
   def index
-    @tasks = Task.all
+    if pet_profile_path?
+      @tasks = @pet.tasks
+    else
+      @tasks = Task.all
+    end
+    # i think this logic might be more suitable in the model or in a controller concern
+    @tasks_sorted_by_pet = @tasks.sort { |a, b| a.pet_profile_id <=> b.pet_profile_id }
+    @tasks_by_pet = @tasks_sorted_by_pet.reduce(Hash.new) do |result, task|
+      if pet_profile_path? # TODO: duplicating this conditional is not ideal
+        pet = @pet
+      else
+        pet = @pets.find(task.pet_profile_id)
+      end
+      if result[pet.name]
+        result[pet.name][:tasks].push(task)
+        result
+      else
+        result[pet.name] = { tasks: [ task ] }
+        result
+      end
+    end
   end
 
   def create
@@ -18,6 +38,18 @@ class TasksController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @task.update(task_params)
+      @pet = PetProfile.find(@task.pet_profile_id)
+      redirect_to @pet
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
   end
 
   private
