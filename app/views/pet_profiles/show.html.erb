@@ -35,39 +35,19 @@
   <div>
     <h2>Health</h2>
   </div>
-  <div class="mb-2 border border-amber-700" data-controller="presentation">
-    <%= link_to pet_profile_tasks_path(@pet) do %>
-      <h2>Tasks</h2>
-    <% end %>
+  <div class="mb-2 border border-amber-700 flex gap-2" data-controller="presentation">
+    <div>
+      <%= link_to pet_profile_tasks_path(@pet) do %>
+        <h2>Tasks</h2>
+      <% end %>
+
+      <% @tasks.each do |pet_name, tasks| %>
+        <%= render partial: "tasks/task", locals: { pet_name: pet_name, tasks: tasks } %>
+      <% end %>
+    </div>
+
     <button data-action="click->presentation#toggleVisibility">add task</button>
-    <%= form_with model: [@pet, Task.new],
-      data: { "presentation-target": "visibility" },
-      class: "hidden" do |form| %>
-      <div class="border border-orange-700">
-        <%= form.label :title, style: "display: block" %>
-        <%= form.text_field :title %>
-      </div>
-      <div class="border border-orange-700">
-        <%= form.label :due_date, style: "display: block" %>
-        <%= form.text_field :due_date %>
-      </div>
-      <div class="border border-orange-700">
-        <%= form.label :complete, style: "display: block" %>
-        <%= form.checkbox :complete %>
-      </div>
-      <div class="border border-orange-700">
-        <%= form.label :recurring, style: "display: block" %>
-        <%= form.checkbox :recurring %>
-      </div>
-      <div class="border border-orange-700">
-        <%= form.label :label, style: "display: block" %>
-        <%= form.text_field :label %>
-      </div>
-      <div class="border border-orange-700">
-        <%= form.label :notes, style: "display: block" %>
-        <%= form.text_area :notes %>
-      </div>
-      <%= form.submit "Submit" %>
-    <% end %>
+
+    <%= render "tasks/form", pet: @pet %>
   </div>
 </section>

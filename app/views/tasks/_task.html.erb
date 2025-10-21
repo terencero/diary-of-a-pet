@@ -1,0 +1,15 @@
+<div id="<%= pet_name %>" class="pet-supply-card border-2 border-orange-700 mb-2 p-1" data-presentation-target="card">
+  <h3 class="font-semibold" data-filter-test="wtf"><%= pet_name %>'s Tasks!</h3>
+  <% tasks[:tasks].each do |task| %>
+    <div class="mb-1 ps-1 border border-amber-300">
+      <p><b>title:</b> <%= task.title %></p>
+      <p><b>label:</b> <%= task.label %></p>
+      <p><b>due_date:</b> <%= task.due_date %></p>
+      <p><b>complete:</b> <%= task.complete %></p>
+      <p><b>notes:</b> <%= task.notes %></p>
+      <%= link_to "Edit", edit_task_path(task) %>
+      <button>Delete</button>
+      <button>Mark Complete</button>
+    </div>
+  <% end %>
+</div> 

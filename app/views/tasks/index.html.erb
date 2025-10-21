@@ -1,15 +1,14 @@
 <section>
   <h1 class="font-bold text-4xl">Tasks</h1>
-  <div>
-    <% @tasks.each do |task| %>
-      <p><b>title:</b> <%= task.title %></p>
-      <p><b>label:</b> <%= task.label %></p>
-      <p><b>due_date:</b> <%= task.due_date %></p>
-      <p><b>complete:</b> <%= task.complete %></p>
-      <p><b>notes:</b> <%= task.notes %></p>
-      <%= link_to "Edit", edit_task_path(task) %>
-      <button>Delete</button>
-      <button>Mark Complete</button>
+  <div data-controller="presentation">
+    <div class="mb-2">
+      <!-- TODO: how do i make chiclets without making crud actions -->
+      <input name="filter" type="text" class="border-2 border-amber-600" data-presentation-target="filter">
+      <button data-action="click->presentation#filter" data-filter-value="pet-supply-card">filter by...</button>
+      <button data-action="click->presentation#clearAllFilters">clear all filters</button>
+    </div>
+    <% @tasks.each do |pet_name, tasks| %>
+      <%= render partial: "task", locals: { pet_name: pet_name, tasks: tasks } %>
     <% end %>
-  </div> 
+  </div>
 </section>
