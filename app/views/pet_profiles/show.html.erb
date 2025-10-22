@@ -4,6 +4,10 @@
     <%= link_to pet_profile_supplies_path(@pet) do %>
       <h2>Supplies</h2>
     <% end %>
+
+    <% @supplies.each do |pet_name, pet_supplies| %>
+      <%= render partial: "supplies/supply", locals: { pet_name: pet_name, pet_supplies: pet_supplies } %>
+    <% end %>
     <button data-action="click->presentation#toggleVisibility">add supply</button>
     <%= form_with model: [@pet, Supply.new], 
       data: { "presentation-target": "visibility" },
