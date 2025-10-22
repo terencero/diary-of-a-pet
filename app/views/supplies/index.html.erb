@@ -7,7 +7,7 @@
       <button data-action="click->presentation#filter" data-filter-value="pet-supply-card">filter by...</button>
       <button data-action="click->presentation#clearAllFilters">clear all filters</button>
     </div>
-    <% @supplies_by_pet.each do |pet_name, pet_supplies| %>
+    <% @supplies.each do |pet_name, pet_supplies| %>
       <div id="<%= pet_name %>" class="pet-supply-card border-2 border-orange-700 mb-2 p-1" data-presentation-target="card">
         <h3 class="font-semibold" data-filter-test="wtf"><%= pet_name %>'s Supplies!</h3>
         <% pet_supplies[:supplies].each do |supply| %>

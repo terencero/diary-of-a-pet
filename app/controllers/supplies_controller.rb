@@ -1,28 +1,10 @@
 class SuppliesController < ApplicationController
   before_action :set_pet_profile
 
+  include ItemsByPet
+
   def index
-    if pet_profile_path?
-      @supplies = @pet.supplies
-    else
-      @supplies = Supply.all
-    end
-    # i think this logic might be more suitable in the model
-    @supplies_sorted_by_pet = @supplies.sort { |a, b| a.pet_profile_id <=> b.pet_profile_id }
-    @supplies_by_pet = @supplies_sorted_by_pet.reduce(Hash.new) do |result, supply|
-      if pet_profile_path? # TODO: duplicating this conditional is not ideal
-        pet = @pet
-      else
-        pet = @pets.find(supply.pet_profile_id)
-      end
-      if result[pet.name]
-        result[pet.name][:supplies].push(supply)
-        result
-      else
-        result[pet.name] = { supplies: [ supply ] }
-        result
-      end
-    end
+    @supplies = get_items_sorted_by_pet("supplies")
   end
 
   def create

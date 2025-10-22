@@ -6,10 +6,6 @@ class TasksController < ApplicationController
 
   def index
     @tasks = get_items_sorted_by_pet("tasks")
-    # if pet_profile_path?
-    # else
-    #   @tasks = Task.all
-    # end
   end
 
   def create

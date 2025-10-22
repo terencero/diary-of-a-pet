@@ -11,7 +11,7 @@ module ItemsByPet
     @items_by_pet = @items_sorted_by_pet.reduce(Hash.new) do |result, task|
       pet = @pet
       if result[pet.name]
-        result[pet.name][item_type].push(task)
+        result[pet.name][item_type.to_sym].push(task)
         result
       else
         result[pet.name] = { item_type.to_sym => [ task ] }

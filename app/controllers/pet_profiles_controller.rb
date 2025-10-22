@@ -8,5 +8,6 @@ class PetProfilesController < ApplicationController
     @pet = PetProfile.find(params[:id])
 
     @tasks = get_items_sorted_by_pet("tasks")
+    @supplies = get_items_sorted_by_pet("supplies")
   end
 end
