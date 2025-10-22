@@ -6,10 +6,10 @@ module ItemsByPet
   end
 
   def get_items_sorted_by_pet(item_type)
-    @items = @pet.send(item_type) # i guess [] access only works for table columns, but not associations
+    @items = @pet ? @pet.send(item_type) : @itemTypes[item_type.to_sym].all # i guess [] access only works for table columns, but not associations
     @items_sorted_by_pet = @items.sort { |a, b| a.pet_profile_id <=> b.pet_profile_id }
     @items_by_pet = @items_sorted_by_pet.reduce(Hash.new) do |result, task|
-      pet = @pet
+      pet = @pet || PetProfile.find(task.pet_profile_id)
       if result[pet.name]
         result[pet.name][item_type.to_sym].push(task)
         result
