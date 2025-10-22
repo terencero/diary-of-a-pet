@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   include ItemsByPet
 
   def index
-    @tasks = get_items_sorted_by_pet("tasks")
+    @tasks = get_items_sorted_by_pet(:tasks)
   end
 
   def create

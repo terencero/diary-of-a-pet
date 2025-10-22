@@ -1,30 +1,63 @@
-<%= form_with model: pet,
-  data: { "presentation-target": "visibility" },
-  class: "hidden" do |form| %>
-  <div class="border border-orange-700">
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-  <div class="border border-orange-700">
-    <%= form.label :due_date, style: "display: block" %>
-    <%= form.text_field :due_date %>
-  </div>
-  <div class="border border-orange-700">
-    <%= form.label :complete, style: "display: block" %>
-    <%= form.checkbox :complete %>
-  </div>
-  <div class="border border-orange-700">
-    <%= form.label :recurring, style: "display: block" %>
-    <%= form.checkbox :recurring %>
-  </div>
-  <div class="border border-orange-700">
-    <%= form.label :label, style: "display: block" %>
-    <%= form.text_field :label %>
-  </div>
-  <div class="border border-orange-700">
-    <%= form.label :notes, style: "display: block" %>
-    <%= form.text_area :notes %>
-  </div>
+<% if local_assigns[:pet] %>
+  <%= form_with model: [ pet, task ],
+    data: { "presentation-target": "visibility" },
+    class: "hidden" do |form| %>
+    <div class="border border-orange-700">
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title %>
+    </div>
+    <div class="border border-orange-700">
+      <%= form.label :due_date, style: "display: block" %>
+      <%= form.text_field :due_date %>
+    </div>
+    <div class="border border-orange-700">
+      <%= form.label :complete, style: "display: block" %>
+      <%= form.checkbox :complete %>
+    </div>
+    <div class="border border-orange-700">
+      <%= form.label :recurring, style: "display: block" %>
+      <%= form.checkbox :recurring %>
+    </div>
+    <div class="border border-orange-700">
+      <%= form.label :label, style: "display: block" %>
+      <%= form.text_field :label %>
+    </div>
+    <div class="border border-orange-700">
+      <%= form.label :notes, style: "display: block" %>
+      <%= form.text_area :notes %>
+    </div>
 
-  <%= form.submit "Submit" %>
+    <%= form.submit "Submit" %>
+  <% end %>
+<% else %>
+  <%= form_with model: task,
+    data: { "presentation-target": "visibility" },
+    class: "hidden" do |form| %>
+    <div class="border border-orange-700">
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title %>
+    </div>
+    <div class="border border-orange-700">
+      <%= form.label :due_date, style: "display: block" %>
+      <%= form.text_field :due_date %>
+    </div>
+    <div class="border border-orange-700">
+      <%= form.label :complete, style: "display: block" %>
+      <%= form.checkbox :complete %>
+    </div>
+    <div class="border border-orange-700">
+      <%= form.label :recurring, style: "display: block" %>
+      <%= form.checkbox :recurring %>
+    </div>
+    <div class="border border-orange-700">
+      <%= form.label :label, style: "display: block" %>
+      <%= form.text_field :label %>
+    </div>
+    <div class="border border-orange-700">
+      <%= form.label :notes, style: "display: block" %>
+      <%= form.text_area :notes %>
+    </div>
+
+    <%= form.submit "Submit" %>
+  <% end %>
 <% end %>

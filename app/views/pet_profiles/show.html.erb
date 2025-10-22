@@ -52,6 +52,6 @@
 
     <button data-action="click->presentation#toggleVisibility">add task</button>
 
-    <%= render "tasks/form", pet: @pet %>
+    <%= render partial: "tasks/form", locals: { pet: @pet, task: Task.new } %>
   </div>
 </section>

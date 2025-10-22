@@ -1,35 +1,3 @@
 <div>
-  <%= form_with model: @task do |form| %>
-    <div>
-      <%= form.label :title, class: [ "font-bold" ] %>:
-      <%= form.text_field :title %>
-    </div>
-
-    <div>
-      <%= form.label :due_date, class: [ "font-bold" ] %>:
-      <%= form.date_field :due_date %>
-    </div>
-
-    <div>
-      <%= form.label :complete, class: [ "font-bold" ] %>:
-      <%= form.checkbox :complete %>
-    </div>
-    
-    <div>
-      <%= form.label :recurring, class: [ "font-bold" ] %>:
-      <%= form.checkbox :recurring %>
-    </div>
-
-    <div>
-      <%= form.label :label, class: [ "font-bold" ] %>:
-      <%= form.text_field :label %>
-    </div>
-
-    <div>
-      <%= form.label :notes, class: [ "font-bold" ] %>:
-      <%= form.text_area :notes %>
-    </div>
-
-    <%= form.submit %>
-  <% end %>
+  <%= render "form", task: @task %>
 </div>

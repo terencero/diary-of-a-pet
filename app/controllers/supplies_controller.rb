@@ -4,7 +4,7 @@ class SuppliesController < ApplicationController
   include ItemsByPet
 
   def index
-    @supplies = get_items_sorted_by_pet("supplies")
+    @supplies = get_items_sorted_by_pet(:supplies)
   end
 
   def create
