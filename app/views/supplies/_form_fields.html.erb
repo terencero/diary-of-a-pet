@@ -1,0 +1,19 @@
+<div class="border border-orange-700">
+  <%= form.label :name, style: "display: block" %>
+  <%= form.text_field :name %>
+</div>
+
+<div class="border border-orange-700">
+  <%= form.label :brand, style: "display: block" %>
+  <%= form.text_field :brand %>
+</div>
+
+<div class="border border-orange-700">
+  <%= form.label :inventory_count, style: "display: block" %>
+  <%= form.number_field :inventory_count %>
+</div>
+
+<div class="border border-orange-700">
+  <%= form.label :type, style: "display: block" %>
+  <%= form.select :type, ['Food', 'Medication', 'Poop Bag', 'Litter', 'other'] %>
+</div>

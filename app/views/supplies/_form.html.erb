@@ -1,16 +1,16 @@
 <% if local_assigns[:pet] %>
-  <%= form_with model: [ pet, task ],
+  <%= form_with model: [ pet, supply ],
     data: { "presentation-target": "visibility" },
     class: "hidden" do |form| %>
 
-      <%= render partial: "tasks/form_fields", locals: { form: form } %>
+      <%= render partial: "supplies/form_fields", locals: { form: form } %>
 
       <%= form.submit "Submit" %>
     <% end %>
 <% else %>
   <%= form_with model: task, data: { "presentation-target": "visibility" } do |form| %>
 
-    <%= render partial: "tasks/form_fields", locals: { form: form } %>
+    <%= render partial: "supplies/form_fields", locals: { form: form } %>
 
     <%= form.submit "Submit" %>
   <% end %>
