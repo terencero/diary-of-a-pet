@@ -7,9 +7,11 @@
       <p><b>due_date:</b> <%= task.due_date %></p>
       <p><b>complete:</b> <%= task.complete %></p>
       <p><b>notes:</b> <%= task.notes %></p>
-      <%= link_to "Edit", edit_task_path(task) %>
-      <button>Delete</button>
-      <button>Mark Complete</button>
+      <div class="p-1">
+        <%= link_to "Edit", edit_task_path(task), class: "p-1 border border-blue-700" %>
+        <button class="p-1 border border-blue-700">Delete</button>
+        <button class="p-1 border border-blue-700">Mark Complete</button>
+      </div>
     </div>
   <% end %>
 </div> 

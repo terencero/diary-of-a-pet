@@ -5,6 +5,11 @@
       <div><span class="font-semibold">Name</span> <%= supply.name %></div>
       <div><span class="font-semibold">Brand</span> <%= supply.brand %></div>
       <div><span class="font-semibold">Inventory</span> <%= supply.inventory_count %></div>
+      <div class="p-1">
+        <%= link_to "Edit", edit_supply_path(supply), class: "p-1 border border-blue-700" %>
+        <button class="p-1 border border-blue-700">Delete</button>
+        <button class="p-1 border border-blue-700">Mark Complete</button>
+      </div>
     </div>
   <% end %>
 </div>

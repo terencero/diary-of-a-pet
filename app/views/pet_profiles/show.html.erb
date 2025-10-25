@@ -1,44 +1,48 @@
 <section>
   <h1 class="text-blue-700"><%= @pet.name %>'s Page</h1>
-  <div class="mb-2 border border-amber-700" data-controller="presentation">
-    <%= link_to pet_profile_supplies_path(@pet) do %>
-      <h2>Supplies</h2>
-    <% end %>
+  <div class="mb-2 border border-amber-700 flex gap-2" data-controller="presentation">
+    <div class="flex-3">
+      <%= link_to pet_profile_supplies_path(@pet) do %>
+        <h2>Supplies</h2>
+      <% end %>
 
-    <% @supplies.each do |pet_name, pet_supplies| %>
-      <%= render partial: "supplies/supply", locals: { pet_name: pet_name, pet_supplies: pet_supplies } %>
-    <% end %>
-    <button data-action="click->presentation#toggleVisibility">add supply</button>
+      <% @supplies.each do |pet_name, pet_supplies| %>
+        <%= render partial: "supplies/supplies", locals: { pet_name: pet_name, pet_supplies: pet_supplies } %>
+      <% end %>
+    </div>
+    <button class="flex-1" data-action="click->presentation#toggleVisibility">add supply</button>
 
     <%= render partial: "supplies/form", locals: { pet: @pet, supply: Supply.new } %>
   </div>
 
   <div class="mb-2 border border-amber-700 flex gap-2" data-controller="presentation">
-    <%= link_to pet_profile_appointments_path(@pet) do %>
-      <h2>Appointments</h2>
-    <% end %>
+    <div class="flex-3">
+      <%= link_to pet_profile_appointments_path(@pet) do %>
+        <h2>Appointments</h2>
+      <% end %>
 
-    <% @appointments.each do |pet_name, appointments| %>
-      <%= render partial: "appointments/appointment", locals: { pet_name: pet_name, appointments: appointments } %>
-    <% end %>
+      <% @appointments.each do |pet_name, appointments| %>
+        <%= render partial: "appointments/appointments", locals: { pet_name: pet_name, appointments: appointments } %>
+      <% end %>
+    </div>
 
-    <button data-action="click->presentation#toggleVisibility">add appointment</button>
+    <button class="flex-1" data-action="click->presentation#toggleVisibility">add appointment</button>
 
     <%= render partial: "appointments/form", locals: { pet: @pet, appointment: Appointment.new } %>
   </div>
 
   <div class="mb-2 border border-amber-700 flex gap-2" data-controller="presentation">
-    <div>
+    <div class="flex-3">
       <%= link_to pet_profile_tasks_path(@pet) do %>
         <h2>Tasks</h2>
       <% end %>
 
       <% @tasks.each do |pet_name, tasks| %>
-        <%= render partial: "tasks/task", locals: { pet_name: pet_name, tasks: tasks } %>
+        <%= render partial: "tasks/tasks", locals: { pet_name: pet_name, tasks: tasks } %>
       <% end %>
     </div>
 
-    <button data-action="click->presentation#toggleVisibility">add task</button>
+    <button class="flex-1" data-action="click->presentation#toggleVisibility">add task</button>
 
     <%= render partial: "tasks/form", locals: { pet: @pet, task: Task.new } %>
   </div>
