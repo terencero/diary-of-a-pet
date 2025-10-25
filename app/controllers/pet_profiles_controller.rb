@@ -3,6 +3,19 @@ class PetProfilesController < ApplicationController
 
   include ItemsByPet
 
+  def new
+    @pet = PetProfile.new
+  end
+
+  def create
+    @pet = PetProfile.new(pet_profile_params)
+    if @pet.save
+      redirect_to pet_profiles_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def index
     @pets = PetProfile.all
   end
