@@ -9,5 +9,6 @@ class PetProfilesController < ApplicationController
 
     @tasks = get_items_sorted_by_pet(:tasks)
     @supplies = get_items_sorted_by_pet(:supplies)
+    @appointments = get_items_sorted_by_pet(:appointments)
   end
 end

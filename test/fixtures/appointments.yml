@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  appt_start: 2025-10-24 17:48:42
+  appt_end: 2025-10-24 17:48:42
+  title: MyString
+  notes: MyString
+  pet_profile: one
+
+two:
+  category: MyString
+  appt_start: 2025-10-24 17:48:42
+  appt_end: 2025-10-24 17:48:42
+  title: MyString
+  notes: MyString
+  pet_profile: two

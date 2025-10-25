@@ -1,0 +1,17 @@
+<% if local_assigns[:pet] %>
+  <%= form_with model: [ pet, appointment ],
+    data: { "presentation-target": "visibility" },
+    class: "hidden" do |form| %>
+
+    <%= render partial: "appointments/form_fields", locals: { form: form } %>
+
+    <%= form.submit "Submit" %>
+  <% end %>
+<% else %>
+  <%= form_with model: appointment, data: { "presentation-target": "visibility" } do |form| %>
+
+    <%= render partial: "appointments/form_fields", locals: { form: form } %>
+
+    <%= form.submit "Submit" %>
+  <% end %>
+<% end %>

@@ -13,8 +13,18 @@
     <%= render partial: "supplies/form", locals: { pet: @pet, supply: Supply.new } %>
   </div>
 
-  <div>
-    <h2>Health</h2>
+  <div class="mb-2 border border-amber-700 flex gap-2" data-controller="presentation">
+    <%= link_to pet_profile_appointments_path(@pet) do %>
+      <h2>Appointments</h2>
+    <% end %>
+
+    <% @appointments.each do |pet_name, appointments| %>
+      <%= render partial: "appointments/appointment", locals: { pet_name: pet_name, appointments: appointments } %>
+    <% end %>
+
+    <button data-action="click->presentation#toggleVisibility">add appointment</button>
+
+    <%= render partial: "appointments/form", locals: { pet: @pet, appointment: Appointment.new } %>
   </div>
 
   <div class="mb-2 border border-amber-700 flex gap-2" data-controller="presentation">
