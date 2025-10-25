@@ -9,7 +9,8 @@ module ItemsByPet
   def get_items_sorted_by_pet(item_type)
     @itemTypes = {
       supplies: Supply,
-      tasks: Task
+      tasks: Task,
+      appointments: Appointment
     }
 
     @items = @pet ? @pet.send(item_type.to_s) : @itemTypes[item_type].all # i guess [] access only works for table columns, but not associations
