@@ -1,5 +1,5 @@
 class PetProfilesController < ApplicationController
-  before_action :set_pet_profile, only: %i[ show edit update ]
+  before_action :set_pet_profile, only: %i[ show edit update destroy ]
 
   include ItemsByPet
 
@@ -41,6 +41,8 @@ class PetProfilesController < ApplicationController
   end
 
   def destroy
+    @pet.destroy
+    redirect_to pet_profiles_path
   end
 
   private

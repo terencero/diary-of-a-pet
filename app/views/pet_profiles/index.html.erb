@@ -12,7 +12,7 @@
             <p>gender: <%= pet.gender %></p>
           </div>
           <%= link_to "Edit", edit_pet_profile_path(pet) %>
-          <%= link_to "Delete", pet, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+          <%= button_to "Delete", pet, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
         </div>
       <% end %>
     <% end %>
