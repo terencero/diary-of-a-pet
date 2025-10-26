@@ -36,7 +36,6 @@ class TasksController < ApplicationController
 
   private
   def set_pet_profile
-    puts "in pet profile path"
     if pet_profile_path?
       @pet = PetProfile.find(params[:pet_profile_id])
     else
@@ -49,8 +48,6 @@ class TasksController < ApplicationController
   end
 
   def pet_profile_path?
-    Rails.logger.info "what is path #{params}"
-    Rails.logger.info "checking path #{params.include?(:pet_profile_id)}"
     params.include? :pet_profile_id
   end
 
