@@ -26,6 +26,8 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
+    @appointment.destroy
+    redirect_to PetProfile.find(@appointment.pet_profile_id)
   end
 
   private

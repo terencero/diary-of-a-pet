@@ -8,7 +8,7 @@
       <%= form.submit "Submit" %>
     <% end %>
 <% else %>
-  <%= form_with model: task, data: { "presentation-target": "visibility" } do |form| %>
+  <%= form_with model: supply, data: { "presentation-target": "visibility" } do |form| %>
 
     <%= render partial: "supplies/form_fields", locals: { form: form } %>
 

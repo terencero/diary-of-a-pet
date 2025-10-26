@@ -1,5 +1,6 @@
 class SuppliesController < ApplicationController
   before_action :set_pet_profile
+  before_action :set_supply, only: %i[ edit update destroy ]
 
   include ItemsByPet
 
@@ -22,9 +23,21 @@ class SuppliesController < ApplicationController
   def edit
   end
 
+  def update
+    if @supply.update(supply_params)
+      redirect_to PetProfile.find(@supply.pet_profile_id)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @supply.destroy
+    redirect_to PetProfile.find(@supply.pet_profile_id)
+  end
+
   private
   def set_pet_profile
-    puts "in pet profile path"
     if pet_profile_path?
       @pet = PetProfile.find(params[:pet_profile_id])
     else
@@ -40,5 +53,9 @@ class SuppliesController < ApplicationController
     Rails.logger.info "what is path #{params}"
     Rails.logger.info "checking path #{params.include?(:pet_profile_id)}"
     params.include? :pet_profile_id
+  end
+
+  def set_supply
+    @supply = Supply.find(params[:id])
   end
 end

@@ -10,7 +10,7 @@
         <%= render partial: "supplies/supplies", locals: { pet_name: pet_name, pet_supplies: pet_supplies } %>
       <% end %>
     </div>
-    <button class="flex-1" data-action="click->presentation#toggleVisibility">add supply</button>
+    <button class="flex-1 border border-blue-700" data-action="click->presentation#toggleVisibility">add supply</button>
 
     <%= render partial: "supplies/form", locals: { pet: @pet, supply: Supply.new } %>
   </div>
@@ -26,7 +26,7 @@
       <% end %>
     </div>
 
-    <button class="flex-1" data-action="click->presentation#toggleVisibility">add appointment</button>
+    <button class="flex-1 border border-blue-700" data-action="click->presentation#toggleVisibility">add appointment</button>
 
     <%= render partial: "appointments/form", locals: { pet: @pet, appointment: Appointment.new } %>
   </div>
@@ -42,7 +42,7 @@
       <% end %>
     </div>
 
-    <button class="flex-1" data-action="click->presentation#toggleVisibility">add task</button>
+    <button class="flex-1 border border-blue-700" data-action="click->presentation#toggleVisibility">add task</button>
 
     <%= render partial: "tasks/form", locals: { pet: @pet, task: Task.new } %>
   </div>

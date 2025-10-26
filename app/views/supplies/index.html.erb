@@ -8,7 +8,7 @@
       <button data-action="click->presentation#clearAllFilters">clear all filters</button>
     </div>
     <% @supplies.each do |pet_name, pet_supplies| %>
-      <%= render partial: "supply", locals: { pet_name: pet_name, pet_supplies: pet_supplies } %>
+      <%= render partial: "supplies", locals: { pet_name: pet_name, pet_supplies: pet_supplies } %>
     <% end %>
   </div>
 </section>

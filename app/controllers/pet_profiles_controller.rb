@@ -21,15 +21,12 @@ class PetProfilesController < ApplicationController
   end
 
   def show
-    @pet = PetProfile.find(params[:id])
-
     @tasks = get_items_sorted_by_pet(:tasks)
     @supplies = get_items_sorted_by_pet(:supplies)
     @appointments = get_items_sorted_by_pet(:appointments)
   end
 
   def edit
-    @pet = PetProfile.find(params[:id])
   end
 
   def update

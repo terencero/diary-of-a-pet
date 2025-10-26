@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_24_224842) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_25_224609) do
   create_table "appointments", force: :cascade do |t|
     t.string "category"
     t.datetime "appt_start"
@@ -38,8 +38,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_24_224842) do
     t.integer "inventory_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "type"
     t.integer "pet_profile_id"
+    t.string "supply_type"
     t.index ["pet_profile_id"], name: "index_supplies_on_pet_profile_id"
   end
 
