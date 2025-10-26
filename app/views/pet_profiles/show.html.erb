@@ -1,5 +1,7 @@
 <section>
   <h1 class="text-blue-700"><%= @pet.name %>'s Page</h1>
+
+  <!-- TODO: move these item categories into partials and focused on crud actions -->
   <div class="mb-2 border border-amber-700 flex gap-2" data-controller="presentation">
     <div class="flex-3">
       <%= link_to pet_profile_supplies_path(@pet) do %>

@@ -1,7 +1,7 @@
 class PetProfilesController < ApplicationController
   before_action :set_pet_profile, only: %i[ show edit update destroy ]
 
-  include ItemsByPet
+  include ItemsBySort
 
   def new
     @pet = PetProfile.new
@@ -18,6 +18,8 @@ class PetProfilesController < ApplicationController
 
   def index
     @pets = PetProfile.all
+    @tasks = get_items_sorted_by_desc(:tasks)
+    @appointments = Appointment.all
   end
 
   def show

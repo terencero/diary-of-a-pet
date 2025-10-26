@@ -5,8 +5,10 @@
       <!-- TODO: how do i make chiclets without making crud actions -->
       <input name="filter" type="text" class="border-2 border-amber-600" data-presentation-target="filter">
       <button data-action="click->presentation#filter" data-filter-value="pet-supply-card">filter by...</button>
+      <button>order by...</button> <!-- TODO: default order by upcoming date -->
       <button data-action="click->presentation#clearAllFilters">clear all filters</button>
     </div>
+<!-- TODO: split into recurring and one off tasks? -->
     <% @tasks.each do |pet_name, tasks| %>
       <%= render partial: "tasks", locals: { pet_name: pet_name, tasks: tasks } %>
     <% end %>

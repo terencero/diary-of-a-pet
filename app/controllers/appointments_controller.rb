@@ -2,7 +2,7 @@ class AppointmentsController < ApplicationController
   before_action :set_pet_profile
   before_action :set_appointment, only: %i[ edit update destroy ]
 
-  include ItemsByPet
+  include ItemsBySort
 
   def index
     @appointments = get_items_sorted_by_pet(:appointments)

@@ -1,21 +1,33 @@
 <section>
-  <h1 class="bg-sky-50 font-bold text-4xl">Pet Profiles</h1>
-  <section>
-    <h2 class="font-semibold">Your Pet<%= "s" if @pets.length > 1 %></h2>
-    <% @pets.each do |pet| %>
-      <%= link_to pet do %>
-        <div class="mb-2 border">
-          <h1><%= pet.name %></h1>
-          <div>
-            <p><%= pet.animal %></p>
-            <p>birthday: <%= pet.dob %></p>
-            <p>gender: <%= pet.gender %></p>
-          </div>
-          <%= link_to "Edit", edit_pet_profile_path(pet) %>
-          <%= button_to "Delete", pet, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
-        </div>
-      <% end %>
+  <div>
+    <h2 class="text-blue-500">Upcoming Reminders</h2>
+
+    <% @tasks.each do |task| %>
+      <div class="mb-1 border border-orange-700">
+        <p><%= task.title %></p>
+        <p>due: <%= task.due_date %></p>
+      </div>
     <% end %>
-    <%= link_to "Add a Pet", new_pet_profile_path, class: "border border-blue-700" %>
+  </div>
+  <section>
+    <h1 class="bg-sky-50 font-bold text-4xl">Pet Profiles</h1>
+    <section>
+      <h2 class="font-semibold">Your Pet<%= "s" if @pets.length > 1 %></h2>
+      <% @pets.each do |pet| %>
+        <%= link_to pet do %>
+          <div class="mb-2 border">
+            <h1><%= pet.name %></h1>
+            <div>
+              <p><%= pet.animal %></p>
+              <p>birthday: <%= pet.dob %></p>
+              <p>gender: <%= pet.gender %></p>
+            </div>
+            <%= link_to "Edit", edit_pet_profile_path(pet) %>
+            <%= button_to "Delete", pet, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+          </div>
+        <% end %>
+      <% end %>
+      <%= link_to "Add a Pet", new_pet_profile_path, class: "border border-blue-700" %>
+    </section>
   </section>
 </section>

@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_pet_profile
   before_action :set_task, only: %i[ edit update destroy ]
 
-  include ItemsByPet
+  include ItemsBySort
 
   def index
     @tasks = get_items_sorted_by_pet(:tasks)

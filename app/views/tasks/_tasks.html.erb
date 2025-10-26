@@ -6,6 +6,7 @@
       <p><b>label:</b> <%= task.label %></p>
       <p><b>due_date:</b> <%= task.due_date %></p>
       <p><b>complete:</b> <%= task.complete %></p>
+      <p><b>recurring:</b> <%= task.recurring %></p>
       <p><b>notes:</b> <%= task.notes %></p>
       <div class="p-1">
         <%= link_to "Edit", edit_task_path(task), class: "p-1 border border-blue-700" %>

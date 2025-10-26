@@ -2,7 +2,7 @@ class SuppliesController < ApplicationController
   before_action :set_pet_profile
   before_action :set_supply, only: %i[ edit update destroy ]
 
-  include ItemsByPet
+  include ItemsBySort
 
   def index
     @supplies = get_items_sorted_by_pet(:supplies)
