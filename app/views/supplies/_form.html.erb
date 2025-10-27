@@ -1,7 +1,8 @@
 <% if local_assigns[:pet] %>
+  <h2>Add Supplies for <%= pet.name %></h2>
   <%= form_with model: [ pet, supply ],
     data: { "presentation-target": "visibility" },
-    class: "hidden" do |form| %>
+    class: "" do |form| %>
 
       <%= render partial: "supplies/form_fields", locals: { form: form } %>
 

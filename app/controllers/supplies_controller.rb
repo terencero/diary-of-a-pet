@@ -8,15 +8,22 @@ class SuppliesController < ApplicationController
     @supplies = get_items_sorted_by_pet(:supplies)
   end
 
+  def new
+    @pet = PetProfile.find(params[:pet_profile_id])
+    @supply = Supply.new
+  end
+
   def create
-    puts "params : #{supply_params}"
-      puts "pet : #{@pet}"
+    if @pet
       @pet.supplies.new(supply_params)
 
-    if @pet.save
-      redirect_to @pet, notice: "Supply added successfully"
+      if @pet.save
+        redirect_to @pet, notice: "Supply added successfully"
+      else
+        render @pet
+      end
     else
-      render @pet
+
     end
   end
 

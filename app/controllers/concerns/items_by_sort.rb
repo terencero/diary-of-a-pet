@@ -20,7 +20,7 @@ module ItemsBySort
         result[pet.name][item_type].push(task)
         result
       else
-        result[pet.name] = { item_type => [ task ] }
+        result[pet.name] = { item_type => [ task ], :pet_profile_id => pet.id }
         result
       end
     end

@@ -13,8 +13,6 @@
       <% end %>
     </div>
     <button class="flex-1 border border-blue-700" data-action="click->presentation#toggleVisibility">add supply</button>
-
-    <%= render partial: "supplies/form", locals: { pet: @pet, supply: Supply.new } %>
   </div>
 
   <div class="mb-2 border border-amber-700 flex gap-2" data-controller="presentation">
