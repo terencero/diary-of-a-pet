@@ -4,31 +4,32 @@
   <!-- TODO: move these item categories into partials and focused on crud actions -->
   <div class="mb-2 border border-amber-700 flex gap-2" data-controller="presentation">
     <div class="flex-3">
-      <%= link_to pet_profile_supplies_path(@pet) do %>
-        <h2>Supplies</h2>
-      <% end %>
+      <div class="flex flex-row">
+        <%= link_to pet_profile_supplies_path(@pet), class: "flex-grow" do %>
+          <h2>Supplies</h2>
+        <% end %>
+        <button class="flex-1 border border-blue-700" data-action="click->presentation#toggleVisibility">add supply</button>
+      </div>
 
       <% @supplies.each do |pet_name, pet_supplies| %>
         <%= render partial: "supplies/supplies", locals: { pet_name: pet_name, pet_supplies: pet_supplies } %>
       <% end %>
     </div>
-    <button class="flex-1 border border-blue-700" data-action="click->presentation#toggleVisibility">add supply</button>
   </div>
 
   <div class="mb-2 border border-amber-700 flex gap-2" data-controller="presentation">
     <div class="flex-3">
-      <%= link_to pet_profile_appointments_path(@pet) do %>
-        <h2>Appointments</h2>
-      <% end %>
+      <div class="flex flex-row">
+        <%= link_to pet_profile_appointments_path(@pet), class: "flex-grow" do %>
+          <h2>Appointments</h2>
+        <% end %>
+        <button class="flex-1 border border-blue-700" data-action="click->presentation#toggleVisibility">add appointment</button>
+      </div>
 
-      <% @appointments.each do |pet_name, appointments| %>
-        <%= render partial: "appointments/appointments", locals: { pet_name: pet_name, appointments: appointments } %>
+      <% @appointments.each do |pet_name, pet_appointments| %>
+        <%= render partial: "appointments/appointments", locals: { pet_name: pet_name, pet_appointments: pet_appointments } %>
       <% end %>
     </div>
-
-    <button class="flex-1 border border-blue-700" data-action="click->presentation#toggleVisibility">add appointment</button>
-
-    <%= render partial: "appointments/form", locals: { pet: @pet, appointment: Appointment.new } %>
   </div>
 
   <div class="mb-2 border border-amber-700 flex gap-2" data-controller="presentation">

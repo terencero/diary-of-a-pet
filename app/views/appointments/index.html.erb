@@ -1,4 +1,13 @@
 <div>
-  <h1 class="font-bold text-4xl">Appointments#index</h1>
-  <p>Find me in app/views/appointments/index.html.erb</p>
+  <h1 class="font-bold text-4xl">Appointments</h1>
+  <div dat-controller="presentation">
+    <div class="mb-2">
+      <input type="text" name="filter" class="border-2 border-amber-600" data-presentation-target="filter">
+      <button data-action="click->presentation#filter" data-filter-value="pet-appointment-card">filter by...</button>
+      <button data-action="click->presentation#clearAllFilters">clear all filters</button>
+    </div>
+    <% @appointments.each do |pet_name, pet_appointments| %>
+      <%= render partial: "appointments", locals: { pet_name: pet_name, pet_appointments: pet_appointments } %>
+    <% end %>
+  </div>
 </div>

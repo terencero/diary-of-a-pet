@@ -9,6 +9,10 @@ export default class extends Controller {
     });
   }
 
+  filterByPet() {
+    console.log("filter by pet controller func")
+  }
+
   toggleVisibility() {
     this.visibilityTarget.classList.toggle('hidden')
   }

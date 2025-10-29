@@ -8,6 +8,11 @@ class AppointmentsController < ApplicationController
     @appointments = get_items_sorted_by_pet(:appointments)
   end
 
+  def new
+    @pet = PetProfile.find(params[:pet_profile_id])
+    @appointment = Appointment.new
+  end
+
   def create
     if @pet
       @pet.appointments.new(appointment_params)

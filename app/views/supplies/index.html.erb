@@ -4,7 +4,14 @@
     <div class="mb-2">
       <!-- TODO: how do i make chiclets without making crud actions -->
       <input name="filter" type="text" class="border-2 border-amber-600" data-presentation-target="filter">
-      <button data-action="click->presentation#filter" data-filter-value="pet-supply-card">filter by...</button>
+      <button data-action="click->presentation#filter">filter by...</button>
+      <button data-action="click->presentation#filterByPet">filter by:</button>
+      <label for="pet-profile"></label>
+      <select name="pet-profile-filter" id="pet-profile">
+        <option value="">Pick a Pet</option>
+        <option value="Marvel">Marvel</option>
+        <option value="Mango">Mango</option>
+      </select>
       <button data-action="click->presentation#clearAllFilters">clear all filters</button>
     </div>
     <% @supplies.each do |pet_name, pet_supplies| %>

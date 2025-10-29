@@ -1,5 +1,6 @@
 <div id="<%= pet_name %>" class="pet-supply-card border-2 border-orange-700 mb-2 p-1" data-presentation-target="card">
   <h3 class="font-semibold" data-filter-test="wtf"><%= pet_name %>'s Supplies!</h3>
+  <%= link_to "Add Supply for #{pet_name}", new_pet_profile_supply_path(pet_supplies[:pet_profile_id]) %>
   <% pet_supplies[:supplies].each do |supply| %>
     <div class="mb-1 ps-1 border border-amber-300">
       <div><span class="font-semibold">Name</span> <%= supply.name %></div>
@@ -13,5 +14,4 @@
       </div>
     </div>
   <% end %>
-  <%= link_to "Add Supply for #{pet_name}", new_pet_profile_supply_path(pet_supplies[:pet_profile_id]) %>
 </div>
